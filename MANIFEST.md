@@ -6,7 +6,7 @@ author:
   - Stanisław Pitucha <viraptor@gmail.com>
 copyright_owner:
   - Stanisław Pitucha
-license:
+license: GPL
 repo: http://github.com/viraptor/gr-bitgate
 website: http://github.com/viraptor/gr-bitgate
 ---
