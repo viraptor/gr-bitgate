@@ -24,9 +24,8 @@ include(GrPlatform) #define LIB_SUFFIX
 
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIRS})
-
 list(APPEND bitgate_sources
-)
+    triggered_bits_impl.cc )
 
 set(bitgate_sources "${bitgate_sources}" PARENT_SCOPE)
 if(NOT bitgate_sources)
@@ -35,7 +34,7 @@ if(NOT bitgate_sources)
 endif(NOT bitgate_sources)
 
 add_library(gnuradio-bitgate SHARED ${bitgate_sources})
-target_link_libraries(gnuradio-bitgate ${Boost_LIBRARIES} ${GNURADIO_ALL_LIBRARIES})
+target_link_libraries(gnuradio-bitgate gnuradio-blocks ${Boost_LIBRARIES} ${GNURADIO_ALL_LIBRARIES})
 set_target_properties(gnuradio-bitgate PROPERTIES DEFINE_SYMBOL "gnuradio_bitgate_EXPORTS")
 
 if(APPLE)
@@ -59,11 +58,10 @@ install(TARGETS gnuradio-bitgate
 include(GrTest)
 
 include_directories(${CPPUNIT_INCLUDE_DIRS})
-
 list(APPEND test_bitgate_sources
     ${CMAKE_CURRENT_SOURCE_DIR}/test_bitgate.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/qa_bitgate.cc
-)
+    )
 
 add_executable(test-bitgate ${test_bitgate_sources})
 

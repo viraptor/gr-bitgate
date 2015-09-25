@@ -22,5 +22,5 @@
 ########################################################################
 install(FILES
     api.h
-    DESTINATION include/bitgate
+    triggered_bits.h DESTINATION include/bitgate
 )

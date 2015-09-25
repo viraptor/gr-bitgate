@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<block>
+  <name>Triggered Bits to PDU</name>
+  <key>bitgate_triggered_bits</key>
+  <category>Stream Operators</category>
+  <import>import bitgate</import>
+  <make>bitgate.triggered_bits($end_delay)</make>
+  <param>
+    <name>end_delay</name>
+    <key>end_delay</key>
+    <type>int</type>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>byte</type>
+  </sink>
+  <sink>
+    <name>trigger</name>
+    <type>byte</type>
+  </sink>
+
+  <source>
+    <name>pdus</name>
+    <type>message</type>
+  </source>
+  <doc>
+Triggered bits block takes bits from the `in` input each time `trigger`
+input is non-zero. Samples will be taken from both streams at the same rate.
+
+The output is a pdu containing the bits packed into bytes. The parameter
+end_delay defines how many samples have to be read before the message is
+complete and written to the `pdus` output.
+  </doc>
+</block>
