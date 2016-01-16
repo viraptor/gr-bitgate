@@ -100,6 +100,8 @@ namespace gr {
                         current_packet.clear();
                         since_last_trigger = 0;
                     }
+                    got_bits = 0;
+                    current_byte = 0;
                 }
             }
             pos++;
