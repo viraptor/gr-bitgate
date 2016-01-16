@@ -30,16 +30,16 @@ namespace gr {
   namespace bitgate {
 
     triggered_bits::sptr
-    triggered_bits::make(int end_delay)
+    triggered_bits::make(int end_delay, bool invert)
     {
       return gnuradio::get_initial_sptr
-        (new triggered_bits_impl(end_delay));
+        (new triggered_bits_impl(end_delay, invert));
     }
 
     /*
      * The private constructor
      */
-    triggered_bits_impl::triggered_bits_impl(int end_delay)
+    triggered_bits_impl::triggered_bits_impl(int end_delay, bool invert)
       : gr::block("triggered_bits",
               gr::io_signature::make(2, 2, sizeof(char)),
               gr::io_signature::make(0, 0, 0))
@@ -47,6 +47,7 @@ namespace gr {
       , current_byte(0)
       , since_last_trigger(end_delay)
       , end_delay(end_delay)
+      , invert(invert)
       , current_packet()
     {
         message_port_register_out(PDU_PORT_ID);
@@ -83,7 +84,7 @@ namespace gr {
                 since_last_trigger = 0;
                 got_bits++;
                 current_byte <<= 1;
-                current_byte |= !data[pos];
+                current_byte |= invert ^ data[pos];
                 if (got_bits == 8) {
                     current_packet.push_back(current_byte);
                     got_bits = 0;

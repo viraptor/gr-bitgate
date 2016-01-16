@@ -46,7 +46,7 @@ namespace gr {
        * class. bitgate::triggered_bits::make is the public interface for
        * creating new instances.
        */
-      static sptr make(int end_delay);
+      static sptr make(int end_delay, bool invert);
     };
 
   } // namespace bitgate

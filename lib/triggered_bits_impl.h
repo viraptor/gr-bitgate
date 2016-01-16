@@ -33,10 +33,11 @@ namespace gr {
       uint8_t current_byte;
       int since_last_trigger;
       int end_delay;
+      bool invert;
       std::vector<uint8_t> current_packet;
 
      public:
-      triggered_bits_impl(int end_delay);
+      triggered_bits_impl(int end_delay, bool invert);
       ~triggered_bits_impl();
 
       // Where all the action really happens

@@ -4,11 +4,17 @@
   <key>bitgate_triggered_bits</key>
   <category>Stream Operators</category>
   <import>import bitgate</import>
-  <make>bitgate.triggered_bits($end_delay)</make>
+  <make>bitgate.triggered_bits($end_delay, $invert)</make>
   <param>
     <name>end_delay</name>
     <key>end_delay</key>
     <type>int</type>
+  </param>
+
+  <param>
+    <name>invert</name>
+    <key>invert</key>
+    <type>bool</type>
   </param>
 
   <sink>
