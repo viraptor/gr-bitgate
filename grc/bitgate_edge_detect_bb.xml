@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<block>
+  <name>Binary edge detection</name>
+  <key>bitgate_edge_detect_bb</key>
+  <category>bitgate</category>
+  <import>import bitgate</import>
+  <make>bitgate.edge_detect_bb($down, $initial)</make>
+
+  <param>
+    <name>Down Edge</name>
+    <key>down</key>
+    <value>True</value>
+    <type>bool</type>
+  </param>
+  
+  <param>
+    <name>Initial Level</name>
+    <key>initial</key>
+    <value>0</value>
+    <type>int</type>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>byte</type>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>byte</type>
+  </source>
+
+  <doc>
+Detect edge (either up or down) in binary data.
+  </doc>
+</block>
