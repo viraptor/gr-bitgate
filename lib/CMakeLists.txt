@@ -25,7 +25,8 @@ include(GrPlatform) #define LIB_SUFFIX
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIRS})
 list(APPEND bitgate_sources
-    triggered_bits_impl.cc )
+    triggered_bits_impl.cc
+    edge_detect_bb_impl.cc )
 
 set(bitgate_sources "${bitgate_sources}" PARENT_SCOPE)
 if(NOT bitgate_sources)

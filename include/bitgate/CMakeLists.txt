@@ -22,5 +22,6 @@
 ########################################################################
 install(FILES
     api.h
-    triggered_bits.h DESTINATION include/bitgate
+    triggered_bits.h
+    edge_detect_bb.h DESTINATION include/bitgate
 )

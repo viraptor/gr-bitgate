@@ -9,7 +9,11 @@
 
 %{
 #include "bitgate/triggered_bits.h"
+#include "bitgate/edge_detect_bb.h"
 %}
 
 %include "bitgate/triggered_bits.h"
 GR_SWIG_BLOCK_MAGIC2(bitgate, triggered_bits);
+
+%include "bitgate/edge_detect_bb.h"
+GR_SWIG_BLOCK_MAGIC2(bitgate, edge_detect_bb);
